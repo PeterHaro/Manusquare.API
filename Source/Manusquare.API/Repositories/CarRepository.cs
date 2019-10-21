@@ -103,7 +103,6 @@ namespace Manusquare.API.Repositories
             {
                 pageCars = null;
             }
-
             return Task.FromResult((ICollection<Car>)pageCars);
         }
 

@@ -4,7 +4,21 @@ namespace Manusquare.API.Models
 {
     public class Buyer
     {
-        public int id;
-        public List<TransactionalData> HistoricalData;
+        public int Id { get; set; }
+        public List<TransactionalData> HistoricalData { get; set; }
+
+        public Buyer(int id)
+        {
+            Id = id;
+        }
+
+        public void AddTransactionalData(TransactionalData datum)
+        {
+            if (HistoricalData == null)
+            {
+                HistoricalData = new List<TransactionalData>();
+            }
+            HistoricalData.Add(datum);
+        }
     }
 }

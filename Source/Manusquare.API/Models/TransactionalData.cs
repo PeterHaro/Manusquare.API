@@ -2,16 +2,16 @@ namespace Manusquare.API.Models
 {
     public class TransactionalData
     {
-        public int TransactionId;
-        public int SupplierId;
-        public int BuyerId;
-        //private int PriceInEuros;
-        public PriceClassification PriceClassification;
-        public int QualityLikert;
-        public int DeliveryTimeLikert;
-        public int PackagingLikert;
-        public int ResponseRateLikert;
-        public int OverallSatesfactionLikert;
+        public int TransactionId{ get; set; }
+        public int SupplierId{ get; set; }
+        public int BuyerId{ get; set; }
+        //private int PriceInEuros{ get; set; }
+        public PriceClassification PriceClassification{ get; set; }
+        public int QualityLikert{ get; set; }
+        public int DeliveryTimeLikert{ get; set; }
+        public int PackagingLikert{ get; set; }
+        public int ResponseRateLikert{ get; set; }
+        public int OverallSatesfactionLikert{ get; set; }
 
         public TransactionalData() {
 

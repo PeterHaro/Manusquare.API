@@ -1,3 +1,7 @@
+using Manusquare.API.Controllers;
+using Manusquare.API.Database;
+using Microsoft.EntityFrameworkCore;
+
 namespace Manusquare.API
 {
     using System;
@@ -47,6 +51,7 @@ namespace Manusquare.API
                 .AddCustomRouting()
                 .AddResponseCaching()
                 .AddCustomResponseCompression()
+                .AddDbContext<MatchmakingContext>(options => options.UseInMemoryDatabase(databaseName: "Matchmaking"))
                 .AddCustomStrictTransportSecurity()
                 .AddCustomHealthChecks()
                 .AddCustomSwagger()
