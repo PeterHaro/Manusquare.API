@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Manusquare.API.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 
@@ -115,7 +116,7 @@ namespace Manusquare.API.Database
             int pageSize = 20,
             bool disableTracking = true)
         {
-            IQueryable<TEntity> query = _dbSet;
+            IQueryable<TEntity> query = dbSet;
             if (disableTracking)
             {
                 query = query.AsNoTracking();
@@ -131,14 +132,7 @@ namespace Manusquare.API.Database
                 query = query.Where(predicate);
             }
 
-            if (orderBy != null)
-            {
-                return orderBy(query).ToPagedList(pageIndex, pageSize);
-            }
-            else
-            {
-                return query.ToPagedList(pageIndex, pageSize);
-            }
+            return orderBy != null ? orderBy(query).ToPagedList(pageIndex, pageSize) : query.ToPagedList(pageIndex, pageSize);
         }
 
         /// <summary>
@@ -163,7 +157,7 @@ namespace Manusquare.API.Database
             bool disableTracking = true,
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            IQueryable<TEntity> query = _dbSet;
+            IQueryable<TEntity> query = dbSet;
             if (disableTracking)
             {
                 query = query.AsNoTracking();
@@ -179,14 +173,7 @@ namespace Manusquare.API.Database
                 query = query.Where(predicate);
             }
 
-            if (orderBy != null)
-            {
-                return orderBy(query).ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken);
-            }
-            else
-            {
-                return query.ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken);
-            }
+            return orderBy != null ? orderBy(query).ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken) : query.ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken);
         }
 
         /// <summary>
@@ -210,7 +197,7 @@ namespace Manusquare.API.Database
             bool disableTracking = true)
             where TResult : class
         {
-            IQueryable<TEntity> query = _dbSet;
+            IQueryable<TEntity> query = dbSet;
             if (disableTracking)
             {
                 query = query.AsNoTracking();
@@ -226,14 +213,7 @@ namespace Manusquare.API.Database
                 query = query.Where(predicate);
             }
 
-            if (orderBy != null)
-            {
-                return orderBy(query).Select(selector).ToPagedList(pageIndex, pageSize);
-            }
-            else
-            {
-                return query.Select(selector).ToPagedList(pageIndex, pageSize);
-            }
+            return orderBy != null ? orderBy(query).Select(selector).ToPagedList(pageIndex, pageSize) : query.Select(selector).ToPagedList(pageIndex, pageSize);
         }
 
         /// <summary>
@@ -261,7 +241,7 @@ namespace Manusquare.API.Database
             CancellationToken cancellationToken = default(CancellationToken))
             where TResult : class
         {
-            IQueryable<TEntity> query = _dbSet;
+            IQueryable<TEntity> query = dbSet;
             if (disableTracking)
             {
                 query = query.AsNoTracking();
@@ -277,14 +257,9 @@ namespace Manusquare.API.Database
                 query = query.Where(predicate);
             }
 
-            if (orderBy != null)
-            {
-                return orderBy(query).Select(selector).ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken);
-            }
-            else
-            {
-                return query.Select(selector).ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken);
-            }
+            return orderBy != null
+                ? orderBy(query).Select(selector).ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken)
+                : query.Select(selector).ToPagedListAsync(pageIndex, pageSize, 0, cancellationToken);
         }
     }
 }

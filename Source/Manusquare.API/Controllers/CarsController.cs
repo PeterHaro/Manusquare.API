@@ -1,16 +1,16 @@
+using System.Threading;
+using System.Threading.Tasks;
+using Manusquare.API.Commands;
+using Manusquare.API.Constants;
+using Manusquare.API.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
+using Swashbuckle.AspNetCore.Annotations;
+
 namespace Manusquare.API.Controllers
 {
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Manusquare.API.Commands;
-    using Manusquare.API.Constants;
-    using Manusquare.API.ViewModels;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.JsonPatch;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Net.Http.Headers;
-    using Swashbuckle.AspNetCore.Annotations;
-
     [Route("[controller]")]
     [ApiController]
     [ApiVersion(ApiVersionName.V1)]
