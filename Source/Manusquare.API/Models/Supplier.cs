@@ -5,13 +5,18 @@ namespace Manusquare.API.Models
 {
     public class Supplier
     {
-        public int SupplierId;
-        public  int ProfileRanking;
-        public  int SustainabilityRanking;
-        public  int DistanceFromBuyerInKm; //TODO: FIXME: I am just mocking this for now as I dont bother setting up random areas in some GEO area and converting coords to km etc etc
+        public int Id { get; set; }
+        public  int ProfileRanking { get; set; }
+        public  int SustainabilityRanking { get; set; }
+        public  int DistanceFromBuyerInKm { get; set; } //TODO: FIXME: I am just mocking this for now as I dont bother setting up random areas in some GEO area and converting coords to km etc etc
 
-        public Supplier(int supplierId, int profileRanking, int sustainabilityRanking, int distanceFromBuyerInKm) {
-            SupplierId = supplierId;
+        public Supplier()
+        {
+
+        }
+
+        public Supplier(int id, int profileRanking, int sustainabilityRanking, int distanceFromBuyerInKm) {
+            this.Id = id;
             ProfileRanking = profileRanking;
             SustainabilityRanking = sustainabilityRanking;
             DistanceFromBuyerInKm = distanceFromBuyerInKm;
@@ -27,7 +32,7 @@ namespace Manusquare.API.Models
         }
 
         public int getSupplierId() {
-            return SupplierId;
+            return Id;
         }
 
         public int getProfileRanking() {

@@ -1,3 +1,5 @@
+using Manusquare.API.Commands.Semantic.Matchmaking;
+
 namespace Manusquare.API
 {
     using Manusquare.API.Commands;
@@ -22,6 +24,10 @@ namespace Manusquare.API
             services
                 .AddSingleton<IDeleteCarCommand, DeleteCarCommand>()
                 .AddSingleton<IGetCarCommand, GetCarCommand>()
+                .AddSingleton<GetAllBuyersCommand, GetAllBuyersCommand>()
+                .AddSingleton<GetAllSuppliersCommand, GetAllSuppliersCommand>()
+                .AddSingleton<GetAllTransactionalData, GetAllTransactionalData>()
+                .AddSingleton<GetOffersCommand, GetOffersCommand>()
                 .AddSingleton<IGetCarPageCommand, GetCarPageCommand>()
                 .AddSingleton<IPatchCarCommand, PatchCarCommand>()
                 .AddSingleton<IPostCarCommand, PostCarCommand>()

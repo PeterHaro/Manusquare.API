@@ -43,8 +43,9 @@ namespace Manusquare.API
         /// called by the ASP.NET runtime. See
         /// http://blogs.msdn.com/b/webdev/archive/2014/06/17/dependency-injection-in-asp-net-vnext.aspx
         /// </summary>
-        public IServiceProvider ConfigureServices(IServiceCollection services) =>
-            services
+        public IServiceProvider ConfigureServices(IServiceCollection services)
+        {
+            IServiceProvider provider = services
                 .AddCorrelationIdFluent()
                 .AddCustomCaching()
                 .AddCustomOptions(this.configuration)
@@ -65,20 +66,23 @@ namespace Manusquare.API
                 .AddCustomApiVersioning()
                 .AddVersionedApiExplorer(x => x.GroupNameFormat = "'v'VVV") // Version format: 'v'major[.minor][-status]
                 .AddMvcCore()
-                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                    .AddApiExplorer()
-                    .AddAuthorization()
-                    .AddDataAnnotations()
-                    .AddJsonFormatters()
-                    .AddCustomJsonOptions(this.hostingEnvironment)
-                    .AddCustomCors()
-                    .AddCustomMvcOptions(this.hostingEnvironment)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddApiExplorer()
+                .AddAuthorization()
+                .AddDataAnnotations()
+                .AddJsonFormatters()
+                .AddCustomJsonOptions(this.hostingEnvironment)
+                .AddCustomCors()
+                .AddCustomMvcOptions(this.hostingEnvironment)
                 .Services
                 .AddProjectCommands()
                 .AddProjectMappers()
                 .AddProjectRepositories()
                 .AddProjectServices()
                 .BuildServiceProvider();
+            RandomSeed.Initialize(provider);
+            return provider;
+        }
 
         /// <summary>
         /// Configures the application and HTTP request pipeline. Configure is called after ConfigureServices is

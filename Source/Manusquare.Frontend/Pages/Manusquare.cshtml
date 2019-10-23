@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matchmaking</title>
+
+    <!-- Materialize css TODO: Port to local versions as we dont actually require inet-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        .input_row_inline {
+            display: flex;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <form action="#">
+        <p>Quality of project results</p>
+        <div class="row" id="quality_importance_row" style="display: inline-flex;">
+        <p class="input_row_inline">
+            <label>
+                <input name="quality_of_project_results_group" type="radio" />
+                <span>1</span>
+            </label>
+        </p>
+        <p class="input_row_inline">
+            <label>
+                <input name="quality_of_project_results_group" type="radio" />
+                <span>2</span>
+            </label>
+        </p>
+        <p class="input_row_inline">
+            <label>
+                <input name="quality_of_project_results_group" type="radio" checked />
+                <span>3</span>
+            </label>
+        </p>
+        <p class="input_row_inline">
+            <label>
+                <input name="quality_of_project_results_group" type="radio" />
+                <span>4</span>
+            </label>
+        </p>
+        <p class="input_row_inline">
+            <label>
+                <input name="quality_of_project_results_group" type="radio" />
+                <span>5</span>
+            </label>
+        </p>
+        </div>
+    </form>
+    <!-- On time delivery -->
+    <form action="#">
+        <p>Delivery Time</p>
+        <div class="row" id="delivery_time_row" style="display: inline-flex;">
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="delivery_time_group" type="radio" />
+                    <span>1</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="delivery_time_group" type="radio" />
+                    <span>2</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="delivery_time_group" type="radio" checked />
+                    <span>3</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="delivery_time_group" type="radio" />
+                    <span>4</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="delivery_time_group" type="radio" />
+                    <span>5</span>
+                </label>
+            </p>
+        </div>
+    </form>
+    <!-- Communication and collaboration -->
+    <form action="#">
+        <p>Communication and collaboration effectiveness</p>
+        <div class="row" id="collaboration_time_row" style="display: inline-flex;">
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="com_and_collab_time_group" type="radio" />
+                    <span>1</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="com_and_collab_time_group" type="radio" />
+                    <span>2</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="com_and_collab_time_group" type="radio" checked />
+                    <span>3</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="com_and_collab_time_group" type="radio" />
+                    <span>4</span>
+                </label>
+            </p>
+            <p class="input_row_inline">
+                <label>
+                    <input class="with-gap" name="com_and_collab_time_group" type="radio" />
+                    <span>5</span>
+                </label>
+            </p>
+        </div>
+    </form>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field type='number' col s6">
+                    <i class="material-icons prefix">my_location</i>
+                    <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                    <label for="icon_prefix2">Preferred number of kilometers radius from your location</label>
+                </div>
+                <div class="col s6" style="margin-top: 13px;">
+                    <form action="#">
+                        <p>
+                            <label>
+                                <input type="checkbox"/>
+                                <span>Only display results within the selected radius</span>
+                            </label>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">person_pin</i>
+                    <textarea id="profile_ranking_textarea" class="materialize-textarea"></textarea>
+                    <label for="profile_ranking_textarea">Profile Ranking (0-100)</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">loop</i>
+                    <textarea id="SUstainability_ranking_textarea" class="materialize-textarea"></textarea>
+                    <label for="SUstainability_ranking_textarea">Sustainability Ranking (0-100)</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Price importance -->
+    <p>Price importance</p>
+    <form action="#">
+        <p>
+            <label>
+                <input class="with-gap" name="price_importance_group" type="radio" checked />
+                <span>Not so important</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="price_importance_group" type="radio" />
+                <span>Average importance</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="price_importance_group" type="radio"  />
+                <span>Very important</span>
+            </label>
+        </p>
+    </form>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    M.AutoInit();
+</script>
+</body>
+</html>

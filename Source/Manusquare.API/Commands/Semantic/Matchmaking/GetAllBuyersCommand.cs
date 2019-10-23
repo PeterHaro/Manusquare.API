@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Manusquare.API.Commands.Generic;
 using Manusquare.API.Database;
+using Manusquare.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Manusquare.API.Commands.Semantic.Matchmaking
 {
@@ -21,7 +24,19 @@ namespace Manusquare.API.Commands.Semantic.Matchmaking
 
         public async Task<IActionResult> ExecuteAsync(CancellationToken cancellationToken)
         {
-            var retval = await _context.Buyers.ToListAsync(cancellationToken);
+            List<Buyer> retval = await _context.Buyers.ToListAsync(cancellationToken);
+            List<TransactionalData> historicalData = await this._context.TransactionalData.ToListAsync(cancellationToken);
+            foreach (var transaction in historicalData)
+            {
+                foreach (var buyer in retval)
+                {
+                    if (buyer.Id == transaction.BuyerId)
+                    {
+                        buyer.AddTransactionalData(transaction);
+                        break;
+                    }
+                }
+            }
             return new OkObjectResult(retval);
         }
     }

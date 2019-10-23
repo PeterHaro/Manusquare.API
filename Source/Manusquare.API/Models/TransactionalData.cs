@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Manusquare.API.Models
 {
     public class TransactionalData
     {
+        [Key]
         public int TransactionId{ get; set; }
         public int SupplierId{ get; set; }
         public int BuyerId{ get; set; }

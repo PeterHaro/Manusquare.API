@@ -30,16 +30,16 @@ namespace Manusquare.API.Database
                 {
                     return; // Database has been seeded
                 }
-                List<Buyer> buyers = Enumerable.Range(0, NumberOfBuyers).Select(i => new Buyer(i)).ToList();
+                List<Buyer> buyers = Enumerable.Range(0, NumberOfBuyers).Select(i => new Buyer(i + 1)).ToList();
                 List<Supplier> suppliers = Enumerable.Range(0, NumberOfSuppliers).Select(i =>
-                    new Supplier(i, GenerateRandomNumberInRange(0, 100), GenerateRandomNumberInRange(0, 100), GenerateRandomNumberInRange(2, 500))).ToList();
+                    new Supplier((i + 1), GenerateRandomNumberInRange(0, 100), GenerateRandomNumberInRange(0, 100), GenerateRandomNumberInRange(2, 500))).ToList();
 
                 List<TransactionalData> transactionalData = new List<TransactionalData>();
                 for (int i = 0; i < NumberOfHistoricalDataEntries; i++)
                 {
                     TransactionalData datum = new TransactionalData
                     {
-                        TransactionId = i,
+                        TransactionId = i + 1,
                         SupplierId = GenerateSupplierId(i),
                         BuyerId = GenerateBuyerId(i),
                         PriceClassification = GetRandomPrice(i),
@@ -157,7 +157,7 @@ namespace Manusquare.API.Database
 
         public static int GenerateRandomNumberInRange(int minNumber, int maxNumber)
         {
-            return new Random().Next() * (maxNumber - minNumber) + minNumber;
+            return new Random().Next(minNumber, maxNumber);
         }
     }
 }

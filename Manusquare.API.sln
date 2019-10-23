@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manusquare.API", "Source\Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manusquare.API.IntegrationTest", "Tests\Manusquare.API.IntegrationTest\Manusquare.API.IntegrationTest.csproj", "{57839160-3C89-4A5A-BC23-A78F39551C1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manusquare.Frontend", "Source\Manusquare.Frontend\Manusquare.Frontend.csproj", "{89A3206C-ED81-4B9C-A97C-7D93440694C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{57839160-3C89-4A5A-BC23-A78F39551C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57839160-3C89-4A5A-BC23-A78F39551C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57839160-3C89-4A5A-BC23-A78F39551C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A3206C-ED81-4B9C-A97C-7D93440694C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A3206C-ED81-4B9C-A97C-7D93440694C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A3206C-ED81-4B9C-A97C-7D93440694C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A3206C-ED81-4B9C-A97C-7D93440694C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{37F1F839-E685-4E26-B50E-40E3C4896737} = {57BAE1BC-D418-4A95-B292-C0E9324B0A54}
 		{57839160-3C89-4A5A-BC23-A78F39551C1E} = {D57B72FA-A893-400C-AB2E-6919219A38D2}
+		{89A3206C-ED81-4B9C-A97C-7D93440694C3} = {57BAE1BC-D418-4A95-B292-C0E9324B0A54}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E464B40-8B3D-427D-BA61-053DB0B94967}

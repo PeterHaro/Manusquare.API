@@ -30,7 +30,7 @@ namespace Manusquare.API.Commands.Semantic.Matchmaking
         {
             List<Offer> offers = new List<Offer>();
             int length = GenerateRandomNumberInRange(3, 10);
-            List<int> suppliers = await _context.Suppliers.Select(entity => entity.SupplierId).ToListAsync(cancellationToken);
+            List<int> suppliers = await _context.Suppliers.Select(entity => entity.Id).ToListAsync(cancellationToken);
             int existingOffers = await _context.Offers.CountAsync(cancellationToken);
             for (int i = 0; i <length; i++)
             {
