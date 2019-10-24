@@ -1,16 +1,14 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Manusquare.API.Models
 {
     public class Offer
     {
-        [Key] [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id{ get; set; }
-        public int OrderId{ get; set; }
-        public int SupplierId{ get; set; }
-        public double SemanticSimilarity{ get; set; }
-        public int Price{ get; set; }
-        public int DistanceInKm{ get; set; }
+        [Key] public int Id { get; set; }
+        public int OrderId { get; set; }
+        public int SupplierId { get; set; }
+        public double SemanticSimilarity { get; set; }
+        public int Price { get; set; }
+        public int DistanceInKm { get; set; }
     }
 }

@@ -36,7 +36,7 @@ namespace Manusquare.API.Commands.Semantic.Matchmaking
             {
                 Offer offer = new Offer
                 {
-                    Id = existingOffers + i,
+                    Id = (existingOffers + i + 1),
                     OrderId = orderId,
                     SupplierId = GetSupplierId(suppliers.Count),
                     DistanceInKm = GenerateRandomNumberInRange(15, 105),
@@ -58,7 +58,7 @@ namespace Manusquare.API.Commands.Semantic.Matchmaking
 
         private static int GenerateRandomNumberInRange(int minNumber, int maxNumber)
         {
-            return new Random().Next() * (maxNumber - minNumber) + minNumber;
+            return new Random().Next(minNumber, maxNumber);
         }
     }
 }
