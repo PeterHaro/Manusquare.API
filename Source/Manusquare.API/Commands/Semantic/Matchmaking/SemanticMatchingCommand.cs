@@ -1,33 +1,32 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Manusquare.API.Commands.Generic;
-using Manusquare.API.Database;
-using Manusquare.API.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.EntityFrameworkCore;
-// ReSharper disable All
-
+// ReSharper disable ArrangeThisQualifier
 namespace Manusquare.API.Commands.Semantic.Matchmaking
 {
-    public class GetOffersCommand : IGetEntityCommand
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Boxed.AspNetCore;
+    using Database;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Infrastructure;
+    using Microsoft.EntityFrameworkCore;
+    using Models;
+
+   /* public interface IPerformSemanticMatching : IAsyncCommand<SemanticInput> {}
+
+    public class SemanticMatchingCommand : IPerformSemanticMatching
     {
         private readonly MatchmakingContext _context;
         private readonly IActionContextAccessor _actionContextAccessor;
 
-        public GetOffersCommand(IActionContextAccessor actionContextAccessor, MatchmakingContext context)
+        public SemanticMatchingCommand(IActionContextAccessor actionContextAccessor, MatchmakingContext context)
         {
             _actionContextAccessor = actionContextAccessor;
             _context = context;
         }
 
-        /**
-         * This generates all offers for a order id and stores em to the DB
-         */
-        public async Task<IActionResult> ExecuteAsync(int orderId, CancellationToken cancellationToken)
+        public async Task<IActionResult> ExecuteAsync(SemanticInput parameter, CancellationToken cancellationToken)
         {
             List<Offer> offers = new List<Offer>();
             int length = GenerateRandomNumberInRange(3, 10);
@@ -49,17 +48,9 @@ namespace Manusquare.API.Commands.Semantic.Matchmaking
 
             await _context.Offers.AddRangeAsync(offers, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
-            return new OkObjectResult(offers);
+            return new OkObjectResult(new Object());
         }
+    }*/
 
-        private static int GetSupplierId(int amountOfSuppliers)
-        {
-            return GenerateRandomNumberInRange(0, amountOfSuppliers - 1);
-        }
 
-        private static int GenerateRandomNumberInRange(int minNumber, int maxNumber)
-        {
-            return new Random().Next(minNumber, maxNumber);
-        }
-    }
 }
