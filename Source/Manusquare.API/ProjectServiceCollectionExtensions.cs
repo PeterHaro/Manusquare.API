@@ -8,6 +8,7 @@ namespace Manusquare.API
     using Manusquare.API.Services;
     using Manusquare.API.ViewModels;
     using Boxed.Mapping;
+    using Commands.Semantic.Matching;
     using Microsoft.Extensions.DependencyInjection;
 
     /// <summary>
@@ -28,6 +29,7 @@ namespace Manusquare.API
                 .AddSingleton<GetAllSuppliersCommand, GetAllSuppliersCommand>()
                 .AddSingleton<GetAllTransactionalData, GetAllTransactionalData>()
                 .AddSingleton<GetOffersCommand, GetOffersCommand>()
+                .AddSingleton<IGetSemanticScoreCommand, GetSemanticScoreCommand>()
                 .AddSingleton<IGetCarPageCommand, GetCarPageCommand>()
                 .AddSingleton<IPatchCarCommand, PatchCarCommand>()
                 .AddSingleton<IPostCarCommand, PostCarCommand>()

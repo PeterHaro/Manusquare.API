@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  manusquare.api:
+    image: ${DOCKER_REGISTRY-}manusquareapi
+    build:
+      context: .
+      dockerfile: Source/Manusquare.API/Dockerfile
+    environment:
+      - ONTOLOGY_ADDRESS= "http://siminf:8080/semantic-registry/repository/manusquare"
+      - ONTOLOGY_KEY= "$ONTOLOGY_KEY"
+
+  neo4j:
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=none
+    volumes:
+      - ./plugins:/plugins
+      - ./data:/data
+      - ./import:/import

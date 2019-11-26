@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Manusquare.API</name>
+    </assembly>
+    <members>
+        <member name="M:Manusquare.API.ApplicationBuilderExtensions.UseDeveloperErrorPages(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds developer friendly error pages for the application which contain extra debug and exception information.
+            Note: It is unsafe to use this in production.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.ApplicationBuilderExtensions.UseStaticFilesWithCacheControl(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Uses the static files middleware to serve static files. Also adds the Cache-Control and Pragma HTTP
+            headers. The cache duration is controlled from configuration.
+            See http://andrewlock.net/adding-cache-control-headers-to-static-files-in-asp-net-core/.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Commands.Semantic.Matchmaking.GetOffersCommand.ExecuteAsync(System.Int32,System.Threading.CancellationToken)">
+            This generates all offers for a order id and stores em to the DB
+        </member>
+        <member name="M:Manusquare.API.Controllers.Matching.Options">
+            <summary>
+            Returns an Allow HTTP header with the allowed HTTP methods.
+            </summary>
+            <returns>A 200 OK response.</returns>
+        </member>
+        <member name="M:Manusquare.API.Controllers.Matching.Post(Manusquare.API.Commands.Semantic.Matching.IGetSemanticScoreCommand,Manusquare.API.Models.SemanticInput,System.Threading.CancellationToken)">
+            <summary>
+            Calculates the semantic score for a given rfq.
+            </summary>
+            <param name="command">The action command.</param>
+            <param name="input">The RFQ query.</param>
+            <param name="cancellationToken">The cancellation token used to cancel the HTTP request.</param>
+            <returns>A 201 Created response containing the newly created car or a 400 Bad Request if the car is
+            invalid.</returns>
+        </member>
+        <member name="M:Manusquare.API.Controllers.MatchmakingController.Options">
+            <summary>
+            Returns an Allow HTTP header with the allowed HTTP methods.
+            </summary>
+            <returns>A 200 OK response.</returns>
+        </member>
+        <member name="M:Manusquare.API.Controllers.MatchmakingController.GetBuyers(Manusquare.API.Commands.Semantic.Matchmaking.GetAllBuyersCommand,System.Threading.CancellationToken)">
+            <summary>
+            Get all buyers
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Controllers.MatchmakingController.GetSuppliers(Manusquare.API.Commands.Semantic.Matchmaking.GetAllSuppliersCommand,System.Threading.CancellationToken)">
+            <summary>
+            Get all suppliers
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Controllers.MatchmakingController.GetTransactionalData(Manusquare.API.Commands.Semantic.Matchmaking.GetAllTransactionalData,System.Threading.CancellationToken)">
+            <summary>
+            Get all transactional data
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Controllers.MatchmakingController.GetOffers(Manusquare.API.Commands.Semantic.Matchmaking.GetOffersCommand,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get offers for a given order
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.CustomServiceCollectionExtensions">
+            <summary>
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> extension methods which extend ASP.NET Core services.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.CustomServiceCollectionExtensions.AddCustomCaching(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures caching for the application. Registers the <see cref="T:Microsoft.Extensions.Caching.Distributed.IDistributedCache"/> and
+            <see cref="T:Microsoft.Extensions.Caching.Memory.IMemoryCache"/> types with the services collection or IoC container. The
+            <see cref="T:Microsoft.Extensions.Caching.Distributed.IDistributedCache"/> is intended to be used in cloud hosted scenarios where there is a shared
+            cache, which is shared between multiple instances of the application. Use the <see cref="T:Microsoft.Extensions.Caching.Memory.IMemoryCache"/>
+            otherwise.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.CustomServiceCollectionExtensions.AddCustomOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configures the settings by binding the contents of the appsettings.json file to the specified Plain Old CLR
+            Objects (POCO) and adding <see cref="T:Microsoft.Extensions.Options.IOptions`1"/> objects to the services collection.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.CustomServiceCollectionExtensions.AddCustomResponseCompression(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds dynamic response compression to enable GZIP compression of responses. This is turned off for HTTPS
+            requests by default to avoid the BREACH security vulnerability.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.CustomServiceCollectionExtensions.AddCustomRouting(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add custom routing settings which determines how URL's are generated.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.CustomServiceCollectionExtensions.AddCustomStrictTransportSecurity(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the Strict-Transport-Security HTTP header to responses. This HTTP header is only relevant if you are
+            using TLS. It ensures that content is loaded over HTTPS and refuses to connect in case of certificate
+            errors and warnings.
+            See https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security and
+            http://www.troyhunt.com/2015/06/understanding-http-strict-transport.html
+            Note: Including subdomains and a minimum maxage of 18 weeks is required for preloading.
+            Note: You can refer to the following article to clear the HSTS cache in your browser:
+            http://classically.me/blogs/how-clear-hsts-settings-major-browsers
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.CustomServiceCollectionExtensions.AddCustomSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds Swagger services and configures the Swagger services.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Database.GenericRepository`1.GetPagedList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Func{System.Linq.IQueryable{`0},System.Linq.IOrderedQueryable{`0}},System.Func{System.Linq.IQueryable{`0},Microsoft.EntityFrameworkCore.Query.IIncludableQueryable{`0,System.Object}},System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Gets the <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> based on a predicate, orderby delegate and page information. This method default no-tracking query.
+            </summary>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="orderBy">A function to order elements.</param>
+            <param name="include">A function to include navigation properties</param>
+            <param name="pageIndex">The index of page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>.</param>
+            <returns>An <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> that contains elements that satisfy the condition specified by <paramref name="predicate"/>.</returns>
+            <remarks>This method default no-tracking query.</remarks>
+        </member>
+        <member name="M:Manusquare.API.Database.GenericRepository`1.GetPagedListAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Func{System.Linq.IQueryable{`0},System.Linq.IOrderedQueryable{`0}},System.Func{System.Linq.IQueryable{`0},Microsoft.EntityFrameworkCore.Query.IIncludableQueryable{`0,System.Object}},System.Int32,System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Gets the <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> based on a predicate, orderby delegate and page information. This method default no-tracking query.
+            </summary>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="orderBy">A function to order elements.</param>
+            <param name="include">A function to include navigation properties</param>
+            <param name="pageIndex">The index of page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>.</param>
+            <param name="cancellationToken">
+                A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.
+            </param>
+            <returns>An <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> that contains elements that satisfy the condition specified by <paramref name="predicate"/>.</returns>
+            <remarks>This method default no-tracking query.</remarks>
+        </member>
+        <member name="M:Manusquare.API.Database.GenericRepository`1.GetPagedList``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Func{System.Linq.IQueryable{`0},System.Linq.IOrderedQueryable{`0}},System.Func{System.Linq.IQueryable{`0},Microsoft.EntityFrameworkCore.Query.IIncludableQueryable{`0,System.Object}},System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Gets the <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> based on a predicate, orderby delegate and page information. This method default no-tracking query.
+            </summary>
+            <param name="selector">The selector for projection.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="orderBy">A function to order elements.</param>
+            <param name="include">A function to include navigation properties</param>
+            <param name="pageIndex">The index of page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>.</param>
+            <returns>An <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> that contains elements that satisfy the condition specified by <paramref name="predicate"/>.</returns>
+            <remarks>This method default no-tracking query.</remarks>
+        </member>
+        <member name="M:Manusquare.API.Database.GenericRepository`1.GetPagedListAsync``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Func{System.Linq.IQueryable{`0},System.Linq.IOrderedQueryable{`0}},System.Func{System.Linq.IQueryable{`0},Microsoft.EntityFrameworkCore.Query.IIncludableQueryable{`0,System.Object}},System.Int32,System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Gets the <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> based on a predicate, orderby delegate and page information. This method default no-tracking query.
+            </summary>
+            <param name="selector">The selector for projection.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="orderBy">A function to order elements.</param>
+            <param name="include">A function to include navigation properties</param>
+            <param name="pageIndex">The index of page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>.</param>
+            <param name="cancellationToken">
+                A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.
+            </param>
+            <returns>An <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> that contains elements that satisfy the condition specified by <paramref name="predicate"/>.</returns>
+            <remarks>This method default no-tracking query.</remarks>
+        </member>
+        <member name="T:Manusquare.API.Infrastructure.EfRepository`1">
+            <summary>
+            "There's some repetition here - couldn't we have some the sync methods call the async?"
+            https://blogs.msdn.microsoft.com/pfxteam/2012/04/13/should-i-expose-synchronous-wrappers-for-asynchronous-methods/
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Manusquare.API.Infrastructure.IEnumerablePagedListExtensions">
+            <summary>
+            Provides some extension methods for <see cref="T:System.Collections.Generic.IEnumerable`1"/> to provide paging capability.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.IEnumerablePagedListExtensions.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Converts the specified source to <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> by the specified <paramref name="pageIndex"/> and <paramref name="pageSize"/>.
+            </summary>
+            <typeparam name="T">The type of the source.</typeparam>
+            <param name="source">The source to paging.</param>
+            <param name="pageIndex">The index of the page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="indexFrom">The start index value.</param>
+            <returns>An instance of the inherited from <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> interface.</returns>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.IEnumerablePagedListExtensions.ToPagedList``2(System.Collections.Generic.IEnumerable{``0},System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Converts the specified source to <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> by the specified <paramref name="converter"/>, <paramref name="pageIndex"/> and <paramref name="pageSize"/>
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TResult">The type of the result</typeparam>
+            <param name="source">The source to convert.</param>
+            <param name="converter">The converter to change the <typeparamref name="TSource"/> to <typeparamref name="TResult"/>.</param>
+            <param name="pageIndex">The page index.</param>
+            <param name="pageSize">The page size.</param>
+            <param name="indexFrom">The start index value.</param>
+            <returns>An instance of the inherited from <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> interface.</returns>
+        </member>
+        <member name="T:Manusquare.API.Infrastructure.IPagedList`1">
+            <summary>
+            Provides the interface(s) for paged list of any type.
+            </summary>
+            <typeparam name="T">The type for paging.</typeparam>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.IndexFrom">
+            <summary>
+            Gets the index start value.
+            </summary>
+            <value>The index start value.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.PageIndex">
+            <summary>
+            Gets the page index (current).
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.PageSize">
+            <summary>
+            Gets the page size.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.TotalCount">
+            <summary>
+            Gets the total count of the list of type <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.TotalPages">
+            <summary>
+            Gets the total pages.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.Items">
+            <summary>
+            Gets the current page items.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.HasPreviousPage">
+            <summary>
+            Gets the has previous page.
+            </summary>
+            <value>The has previous page.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.IPagedList`1.HasNextPage">
+            <summary>
+            Gets the has next page.
+            </summary>
+            <value>The has next page.</value>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.IQueryablePageListExtensions.ToPagedListAsync``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Converts the specified source to <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> by the specified <paramref name="pageIndex"/> and <paramref name="pageSize"/>.
+            </summary>
+            <typeparam name="T">The type of the source.</typeparam>
+            <param name="source">The source to paging.</param>
+            <param name="pageIndex">The index of the page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="cancellationToken">
+                A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.
+            </param>
+            <param name="indexFrom">The start index value.</param>
+            <returns>An instance of the inherited from <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> interface.</returns>
+        </member>
+        <member name="T:Manusquare.API.Infrastructure.PagedList`1">
+            <inheritdoc />
+            <summary>
+            Represents the default implementation of the <see cref="T:Manusquare.API.Infrastructure.IPagedList`1" /> interface.
+            </summary>
+            <typeparam name="T">The type of the data to page</typeparam>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.PageIndex">
+            <inheritdoc />
+            <summary>
+            Gets or sets the index of the page.
+            </summary>
+            <value>The index of the page.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.PageSize">
+            <inheritdoc />
+            <summary>
+            Gets or sets the size of the page.
+            </summary>
+            <value>The size of the page.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.TotalCount">
+            <inheritdoc />
+            <summary>
+            Gets or sets the total count.
+            </summary>
+            <value>The total count.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.TotalPages">
+            <inheritdoc />
+            <summary>
+            Gets or sets the total pages.
+            </summary>
+            <value>The total pages.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.IndexFrom">
+            <inheritdoc />
+            <summary>
+            Gets or sets the index from.
+            </summary>
+            <value>The index from.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.Items">
+            <inheritdoc />
+            <summary>
+            Gets or sets the items.
+            </summary>
+            <value>The items.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.HasPreviousPage">
+            <inheritdoc />
+            <summary>
+            Gets the has previous page.
+            </summary>
+            <value>The has previous page.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`1.HasNextPage">
+            <inheritdoc />
+            <summary>
+            Gets the has next page.
+            </summary>
+            <value>The has next page.</value>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Manusquare.API.Infrastructure.PagedList`1" /> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="pageIndex">The index of the page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="indexFrom">The index from.</param>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.PagedList`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Manusquare.API.Infrastructure.PagedList`1" /> class.
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.Infrastructure.PagedList`2">
+            <inheritdoc />
+            <summary>
+            Provides the implementation of the <see cref="T:Manusquare.API.Infrastructure.IPagedList`1" /> and converter.
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TResult">The type of the result.</typeparam>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.PageIndex">
+            <summary>
+            Gets the index of the page.
+            </summary>
+            <value>The index of the page.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.PageSize">
+            <summary>
+            Gets the size of the page.
+            </summary>
+            <value>The size of the page.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.TotalCount">
+            <summary>
+            Gets the total count.
+            </summary>
+            <value>The total count.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.TotalPages">
+            <summary>
+            Gets the total pages.
+            </summary>
+            <value>The total pages.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.IndexFrom">
+            <summary>
+            Gets the index from.
+            </summary>
+            <value>The index from.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.Items">
+            <summary>
+            Gets the items.
+            </summary>
+            <value>The items.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.HasPreviousPage">
+            <summary>
+            Gets the has previous page.
+            </summary>
+            <value>The has previous page.</value>
+        </member>
+        <member name="P:Manusquare.API.Infrastructure.PagedList`2.HasNextPage">
+            <summary>
+            Gets the has next page.
+            </summary>
+            <value>The has next page.</value>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.PagedList`2.#ctor(System.Collections.Generic.IEnumerable{`0},System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`1}},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Manusquare.API.Infrastructure.PagedList`2" /> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="converter">The converter.</param>
+            <param name="pageIndex">The index of the page.</param>
+            <param name="pageSize">The size of the page.</param>
+            <param name="indexFrom">The index from.</param>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.PagedList`2.#ctor(Manusquare.API.Infrastructure.IPagedList{`0},System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Manusquare.API.Infrastructure.PagedList`2" /> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="converter">The converter.</param>
+        </member>
+        <member name="T:Manusquare.API.Infrastructure.PagedList">
+            <summary>
+            Provides some help methods for <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> interface.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.PagedList.Empty``1">
+            <summary>
+            Creates an empty of <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/>.
+            </summary>
+            <typeparam name="T">The type for paging </typeparam>
+            <returns>An empty instance of <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/>.</returns>
+        </member>
+        <member name="M:Manusquare.API.Infrastructure.PagedList.From``2(Manusquare.API.Infrastructure.IPagedList{``1},System.Func{System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Creates a new instance of <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> from source of <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/> instance.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <param name="source">The source.</param>
+            <param name="converter">The converter.</param>
+            <returns>An instance of <see cref="T:Manusquare.API.Infrastructure.IPagedList`1"/>.</returns>
+        </member>
+        <member name="M:Manusquare.API.MvcCoreBuilderExtensions.AddCustomCors(Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder)">
+            <summary>
+            Add cross-origin resource sharing (CORS) services and configures named CORS policies. See
+            https://docs.asp.net/en/latest/security/cors.html
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.MvcCoreBuilderExtensions.AddCustomJsonOptions(Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Adds customized JSON serializer settings.
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.OperationFilters.CorrelationIdOperationFilter">
+            <summary>
+            Adds a Swashbuckle <see cref="T:Swashbuckle.AspNetCore.Swagger.NonBodyParameter"/> to all operations with a description of the X-Correlation-ID
+            HTTP header and a default GUID value.
+            </summary>
+            <seealso cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter" />
+        </member>
+        <member name="M:Manusquare.API.OperationFilters.CorrelationIdOperationFilter.Apply(Swashbuckle.AspNetCore.Swagger.Operation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Manusquare.API.Options.ApplicationOptions">
+            <summary>
+            All options for the application.
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.Options.CacheProfileOptions">
+            <summary>
+            The caching options for the application.
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.Options.CompressionOptions">
+            <summary>
+            The dynamic response compression options for the application.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.Options.CompressionOptions.MimeTypes">
+            <summary>
+            Gets or sets a list of MIME types to be compressed in addition to the default set used by ASP.NET Core.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.ProcessUtility.ProcessExecutor.RunAsync(System.Diagnostics.ProcessStartInfo,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Runs asynchronous process.
+            </summary>
+            <param name="processStartInfo">The <see cref="T:System.Diagnostics.ProcessStartInfo" /> that contains the information that is used to start the process, including the file name and any command-line arguments.</param>
+            <param name="standardOutput">List that lines written to standard output by the process will be added to</param>
+            <param name="standardError">List that lines written to standard error by the process will be added to</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:Manusquare.API.ProcessUtility.ProcessExecutor.RunAsync(System.String)">
+            <summary>
+            Runs asynchronous process.
+            </summary>
+            <param name="fileName">An application or document which starts the process.</param>
+        </member>
+        <member name="M:Manusquare.API.ProcessUtility.ProcessExecutor.RunAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Runs asynchronous process.
+            </summary>
+            <param name="fileName">An application or document which starts the process.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:Manusquare.API.ProcessUtility.ProcessExecutor.RunAsync(System.String,System.String)">
+            <summary>
+            Runs asynchronous process.
+            </summary>
+            <param name="fileName">An application or document which starts the process.</param>
+            <param name="arguments">Command-line arguments to pass to the application when the process starts.</param>
+        </member>
+        <member name="M:Manusquare.API.ProcessUtility.ProcessExecutor.RunAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Runs asynchronous process.
+            </summary>
+            <param name="fileName">An application or document which starts the process.</param>
+            <param name="arguments">Command-line arguments to pass to the application when the process starts.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:Manusquare.API.ProcessUtility.ProcessExecutor.RunAsync(System.Diagnostics.ProcessStartInfo)">
+            <summary>
+            Runs asynchronous process.
+            </summary>
+            <param name="processStartInfo">The <see cref="T:System.Diagnostics.ProcessStartInfo" /> that contains the information that is used to start the process, including the file name and any command-line arguments.</param>
+        </member>
+        <member name="M:Manusquare.API.ProcessUtility.ProcessExecutor.RunAsync(System.Diagnostics.ProcessStartInfo,System.Threading.CancellationToken)">
+            <summary>
+            Runs asynchronous process.
+            </summary>
+            <param name="processStartInfo">The <see cref="T:System.Diagnostics.ProcessStartInfo" /> that contains the information that is used to start the process, including the file name and any command-line arguments.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="T:Manusquare.API.ProcessUtility.ProcessResults">
+            <summary>
+            Contains information about process after it has exited.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Program.ConfigureKestrelServerLimits(Microsoft.AspNetCore.Hosting.WebHostBuilderContext,Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions)">
+            <summary>
+            Configure Kestrel server limits from appsettings.json is not supported. So we manually copy them from config.
+            See https://github.com/aspnet/KestrelHttpServer/issues/2216
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.ProjectServiceCollectionExtensions">
+            <summary>
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> extension methods add project services.
+            </summary>
+            <remarks>
+            AddSingleton - Only one instance is ever created and returned.
+            AddScoped - A new instance is created and returned for each request/response cycle.
+            AddTransient - A new instance is created and returned each time.
+            </remarks>
+        </member>
+        <member name="T:Manusquare.API.Services.ClockService">
+            <summary>
+            Retrieves the current date and/or time. Helps with unit testing by letting you mock the system clock.
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.Services.IClockService">
+            <summary>
+            Retrieves the current date and/or time. Helps with unit testing by letting you mock the system clock.
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.Startup">
+            <summary>
+            The main start-up class for the application.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Manusquare.API.Startup"/> class.
+            </summary>
+            <param name="configuration">The application configuration, where key value pair settings are stored. See
+            http://docs.asp.net/en/latest/fundamentals/configuration.html</param>
+            <param name="hostingEnvironment">The environment the application is running under. This can be Development,
+            Staging or Production by default. See http://docs.asp.net/en/latest/fundamentals/environments.html</param>
+        </member>
+        <member name="M:Manusquare.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services to add to the ASP.NET Core Injection of Control (IoC) container. This method gets
+            called by the ASP.NET runtime. See
+            http://blogs.msdn.com/b/webdev/archive/2014/06/17/dependency-injection-in-asp-net-vnext.aspx
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configures the application and HTTP request pipeline. Configure is called after ConfigureServices is
+            called by the ASP.NET runtime.
+            </summary>
+        </member>
+        <member name="M:Manusquare.API.Utilities.Opener.Open(System.String,System.Collections.Generic.IEnumerable{System.String},System.Diagnostics.ProcessStartInfo)">
+            <summary>
+            Launch a command on macOS, Linux, or windows
+            </summary>
+            <param name="command">the command to launch</param>
+            <param name="arguments">any arguments you wish to pass</param>
+            <param name="processStartInfo">You may configure the process with the System.Diagnostics.ProcessStartInfo type. However filename, and arguments will be overriden. If this is null, by default stdout/stderr will be redirected</param>
+            <returns></returns>
+        </member>
+        <member name="T:Manusquare.API.ViewModels.Car">
+            <summary>
+            A make and model of car.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.Car.CarId">
+            <summary>
+            The cars unique identifier.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.Car.Cylinders">
+            <summary>
+            The number of cylinders in the cars engine.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.Car.Make">
+            <summary>
+            The make of the car.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.Car.Model">
+            <summary>
+            The model of the car.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.Car.Url">
+            <summary>
+            The URL used to retrieve the resource conforming to REST'ful JSON http://restfuljson.org/.
+            </summary>
+        </member>
+        <member name="T:Manusquare.API.ViewModels.SaveCar">
+            <summary>
+            A make and model of car.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.SaveCar.Cylinders">
+            <summary>
+            The number of cylinders in the cars engine.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.SaveCar.Make">
+            <summary>
+            The make of the car.
+            </summary>
+        </member>
+        <member name="P:Manusquare.API.ViewModels.SaveCar.Model">
+            <summary>
+            The model of the car.
+            </summary>
+        </member>
+    </members>
+</doc>
